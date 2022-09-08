@@ -2,13 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>hello world</title>
+    <title>TAOZi</title>
 </head>
+
+<script src="./js/Vue.js"></script>
+<!-- 引入组件库 -->
+<script src="./element-ui/lib/index.js"></script>
+<!--引入样式-->
+<link rel="stylesheet"  href="./element-ui/lib/theme-chalk/index.css">
+<!-- 引入axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<style>
+    p {
+        font-family: 微软雅黑;
+        font-size: larger;
+        color: pink;
+    }
+
+    .headgif
+    {
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .headgif:hover{
+        transform: scale(1.4);
+    }
+</style>
+
 <body>
 
-<h3>HELLO WORLD </h3>
+<div id="app">
 
-<a href="http://www.bilibili.com">进入bilibili</a>
+    <el-container>
+        <el-header>
+            <p class="header">TAOZi的个人博客</p>>
+        </el-header>
+        <el-container>
+            <el-aside width="200px">
+                <img src="./IMG/bilibili.png" width="80">
+                <a href=https://space.bilibili.com/439750005/>进入bilibili</a><br>
+
+                <el-popover
+                        placement="right"
+                        title="戍神沁音想要和你玩"
+                        width="400"
+                        trigger="hover">
+                    <img class="headgif" src="./IMG/戍神沁音.gif" slot="reference"><br>
+                </el-popover>
+
+
+
+            </el-aside>
+            <el-container>
+                <el-main>
+                    <img src="./IMG/菲谢尔1.png" width="1000">
+                </el-main>
+                <el-footer>QAQ</el-footer>
+            </el-container>
+        </el-container>
+    </el-container>
+
+</div>
 
 </body>
+
+<style>
+    .el-header {
+        background-color: black;
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .el-footer{
+        background-color: white;
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .el-aside {
+        background-color: pink;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    .el-main {
+        background-color: pink;
+        color: #333;
+        text-align: center;
+        line-height: 160px;
+    }
+
+    body > .el-container {
+        margin-bottom: 40px;
+    }
+
+    .el-container:nth-child(5) .el-aside,
+    .el-container:nth-child(6) .el-aside {
+        line-height: 260px;
+    }
+
+    .el-container:nth-child(7) .el-aside {
+        line-height: 320px;
+    }
+</style>
+
+<script>
+
+    new Vue({
+        el:"#app",
+
+        methods:{},
+
+        data(){
+            return{
+                visible: false,
+            }
+        }
+    })
+</script>
+
 </html>
