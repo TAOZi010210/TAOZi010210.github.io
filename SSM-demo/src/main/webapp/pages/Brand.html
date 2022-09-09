@@ -165,7 +165,7 @@
                 //查询所有数据
                 selectAll(){
                     let _this = this;
-                    axios.get("http://taozi010210.github.io/SSS-demo/brands").then(function (resp){
+                    axios.get("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands").then(function (resp){
 
                         _this.tableData = resp.data.data;
                     })
@@ -182,7 +182,7 @@
                     let _this = this;
                     console.log(this.Brand);
 
-                    axios.post("http://taozi010210.github.io/SSM-demo/brands/selectByConditions",_this.Brand).then(function (resp){
+                    axios.post("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands/selectByConditions",_this.Brand).then(function (resp){
                         _this.tableData = resp.data.data;
 
                     })
@@ -192,7 +192,7 @@
                 //新增
                 BrandAdd() {
                     let _this = this;
-                    axios.post("http://taozi010210.github.io/SSM-demo/brands",_this.Brand).then(function (resp){
+                    axios.post("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands",_this.Brand).then(function (resp){
                         if(resp.data.data == true){
                             _this.dialogVisible = false
                             _this.selectAll();
@@ -214,7 +214,7 @@
                     }).then(() => {
                         let _this = this;
                         console.log(row.id);
-                        axios.delete("http://taozi010210.github.io/brands/"+row.id).then(function (resp){
+                        axios.delete("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands/"+row.id).then(function (resp){
                             if(resp.data.data == true){
                                 _this.selectAll();
                                 _this.$message({
@@ -244,7 +244,7 @@
                 //单个修改
                 BrandChange(){
                     let _this = this;
-                    axios.put("http://taozi010210.github.io/brands",_this.GetChangeInfo).then(function (resp){
+                    axios.put("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands",_this.GetChangeInfo).then(function (resp){
                         if(resp.data.data == true){
                             _this.changeinfo = false;
                             _this.selectAll();
@@ -269,7 +269,7 @@
                         type: 'warning'
                     }).then(() => {
 
-                        axios.post("http://taozi010210.github.io/brands/deleteByIds",_this.ids).then(function (resp){
+                        axios.post("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands/deleteByIds",_this.ids).then(function (resp){
                             if(resp.data.data == true){
                                 _this.selectAll();
                                 _this.$message({
