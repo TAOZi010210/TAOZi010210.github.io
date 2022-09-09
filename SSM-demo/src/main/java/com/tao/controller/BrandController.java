@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @ResponseBody
-@RequestMapping("/brands")
+@RequestMapping("http://taozi010210.github.io/SSS-demo/src/main/java/com/tao/controller/BrandController/brands")
 public class BrandController {
 
     @Autowired
