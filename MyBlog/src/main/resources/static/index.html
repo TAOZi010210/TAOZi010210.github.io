@@ -178,14 +178,6 @@
 
     new Vue({
         el:"#app",
-
-        created() {
-            window.onresize = () => {
-                return (() => {
-                    this.screenheight = document.documentElement.clientHeight + 'px'
-                })
-            }
-        },
         methods: {
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
