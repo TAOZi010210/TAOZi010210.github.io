@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TAOZi</title>
 </head>
 
 <script src="./js/Vue.js"></script>
@@ -19,36 +19,124 @@
         font-size: larger;
         color: pink;
     }
+
+    .headgif
+    {
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .headgif:hover{
+        transform: scale(1.4);
+    }
 </style>
 
 <body>
+
 <div id="app">
 
-<el-container>
-    <el-header>
-        <p class="header">TAOZi的个人博客</p>>
-    </el-header>
     <el-container>
-        <el-aside width="200px">
-            <img src="./IMG/bilibili.png" width="80">
-            <a href="http://www.bilibili.com">进入bilibili</a>
-        </el-aside>
+        <el-header>
+            <p class="header">TAOZi的个人博客</p>>
+        </el-header>
         <el-container>
-            <el-main>
-                <img src="./IMG/菲谢尔1.png" width="1000">
-            </el-main>
-            <el-footer>Footer</el-footer>
+            <el-aside width="200px">
+                <img src="./IMG/bilibili.png" width="80">
+                <a href=https://space.bilibili.com/439750005/>进入bilibili</a><br>
+
+                <el-popover
+                        placement="right"
+                        title="戍神沁音想要和你玩"
+                        width="400"
+                        trigger="hover">
+                    <img class="headgif" src="./IMG/戍神沁音.gif" slot="reference"><br>
+                </el-popover>
+
+
+            </el-aside>
+            <el-container>
+                <el-main>
+                    <img src="./IMG/菲谢尔1.png" width="1000">
+                </el-main>
+                <el-footer>QAQ</el-footer>
+            </el-container>
         </el-container>
     </el-container>
-</el-container>
+
+
+    <div class="line"></div>
+    <el-menu
+            :default-active="activeIndex"
+            class="el-menu-demo"
+            mode="horizontal"
+            @select="handleSelect"
+            background-color="black"
+            text-color="white"
+            active-text-color="pink">
+        <el-menu-item index="1">简介</el-menu-item>
+        <el-submenu index="2">
+            <template slot="title">文章</template>
+            <el-menu-item index="2-1">选项1</el-menu-item>
+            <el-menu-item index="2-2">选项2</el-menu-item>
+            <el-menu-item index="2-3">选项3</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3" disabled>项目</el-menu-item>
+        <el-menu-item index="4"><a href="https://www.baidu.com">百度一下</a></el-menu-item>
+    </el-menu>
+
+    <template>
+        <el-carousel :interval="4000" type="card" height="200px">
+            <el-carousel-item v-for="item in 3" :key="item">
+                <h3 class="medium">{{item}}</h3>
+            </el-carousel-item>
+        </el-carousel>
+    </template>
+
 
 </div>
 
+
+
+
 </body>
 
+<!--走马灯-->
 <style>
-    .el-header, .el-footer {
+    .el-carousel__item h3 {
+        color: #475669;
+        font-size: 14px;
+        opacity: 0.75;
+        line-height: 200px;
+        margin: 0;
+    }
+
+    .el-carousel__item:nth-child(2n) {
+        background-color: #99a9bf;
+    }
+
+    .el-carousel__item:nth-child(2n+1) {
+        background-color: #d3dce6;
+    }
+
+
+</style>
+
+<style>
+    .el-header {
         background-color: black;
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .el-footer{
+        background-color: white;
         color: #333;
         text-align: center;
         line-height: 60px;
@@ -87,11 +175,15 @@
     new Vue({
         el:"#app",
 
-        methods:{},
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            },
+        },
 
         data(){
             return{
-
+                activeIndex: '1',
             }
         }
     })
